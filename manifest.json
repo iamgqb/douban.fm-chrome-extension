@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+
+    "name": "Lazy Download",
+
+    "version": "1.0",
+
+    "permissions": [
+        "http://douban.fm/*",
+        "http://*.douban.com/*",
+        "tabs","webRequest"
+    ],
+
+    "page_action": {
+        "default_icon": {
+            "19": "img/19.png",
+            "38": "img/38.png"            
+        },
+        "default_title": "豆瓣下载正开启"
+    },
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+
+    "content_scripts": [{
+        "matches": ["http://douban.fm/"],
+        "js": ["content.js"],
+        "run_at": "document_end"
+    }]
+}
